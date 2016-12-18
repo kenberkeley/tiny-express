@@ -1,0 +1,21 @@
+{
+  "name": "tiny-express",
+  "version": "0.1.0",
+  "description": "Implement a tiny express which can run in browser",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test",
+    "cov": "istanbul cover _mocha"
+  },
+  "author": "Ken Berkeley <kenberkeley@foxmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "path-to-regexp": "^1.7.0",
+    "qs": "^6.3.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.2.0"
+  }
+}
