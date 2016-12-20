@@ -3,7 +3,7 @@ var expect = require('chai').expect,
   app = tinyExpress();
 
 describe('# Error: app.use(<invalid arg>)', function () {
-  it('## should throw error', function () {
+  it('## Type of fn not supported', function () {
     expect(function () {
       app.use(true);
     })
