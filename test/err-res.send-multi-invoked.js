@@ -12,7 +12,7 @@ describe('# Error: res.send invoked more than once', function () {
     expect(function () {
       app
         .receive({ method: 'get', url: '/foo/bar' })
-        .respond();
+        .respond(function () {/* whatever */});
     })
     .to.throw('res.send invoked more than once');
   });

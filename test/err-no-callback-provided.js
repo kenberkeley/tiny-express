@@ -3,7 +3,7 @@ var expect = require('chai').expect,
   app = tinyExpress();
 
 describe('# Error: no callback provided', function () {
-  it('## should throw error', function () {
+  it('## No callback provided', function () {
     expect(function () {
       app
         .receive({ method: 'get', url: '/foo/bar' })

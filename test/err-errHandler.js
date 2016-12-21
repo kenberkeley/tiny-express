@@ -11,7 +11,7 @@ app.use(function(req, res, next) {
 describe('# Error: errHandler', function () {
   it('## Error handler (with 4 arguments) not found', function () {
     expect(function () {
-      app.receive({ method: 'get', path: '/' }).respond(function () {/* whatever */});
+      app.receive({ method: 'get', url: '/' }).respond(function () {/* whatever */});
     })
     .to.throw('Error handler (with 4 arguments) not found');
   });
@@ -20,7 +20,7 @@ describe('# Error: errHandler', function () {
     app.use(errHandler);
     app.use(errHandler);
     expect(function () {
-      app.receive({ method: 'get', path: '/' }).respond(function () {/* whatever */});
+      app.receive({ method: 'get', url: '/' }).respond(function () {/* whatever */});
     })
     .to.throw('You can only set ONE error handler');
   });

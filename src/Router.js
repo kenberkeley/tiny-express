@@ -29,6 +29,7 @@ proto.isEmpty = function () {
  * @return {Array}  middlewares (including handler)
  */
 proto.match = function (req) {
+  console.log(this.routes);
   for (var i = 0; i < this.routes.length; i++) {
     var route = this.routes[i];
 
@@ -42,7 +43,7 @@ proto.match = function (req) {
     // generate params dynamically
     req.params = getParams(paramKeys, matchedResult);
 
-    var middlewares = route.middlewares || [],
+    var middlewares = route.middlewares || route.middleware || [],
       handler = route.handler || [];
 
     if (typeOf(middlewares) === 'function') {

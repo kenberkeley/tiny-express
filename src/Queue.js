@@ -10,10 +10,10 @@ function Queue(req, res, queue) {
 var proto = Queue.prototype;
 
 proto.run = function (err) {
+  if (err) return this.handleErr(err);
   if (!this.queue.length) {
     throw new Error('No middlewares for next');
   }
-  if (err) return this.handleErr(err);
 
   var mdw = this.queue.shift();
   if (mdw.length === 4) {

@@ -9,7 +9,7 @@ function TinyExpress () {
   if (!(this instanceof TinyExpress)) {
     return new TinyExpress();
   }
-  this.router = new Router();
+  this.router = Router();
 
   // global Middlewares
   this.beforeMiddlewares = [];
@@ -51,12 +51,12 @@ proto.use = function (fn) {
 // app.VERB(<path>, <middleware[]?>, handler)
 methods.forEach(function (method) {
   proto[method] = function (path, middlewares, handler) {
-    var route = { method: method, path: path };
-    route.handler = handler ? (
-      handler && (route.middlewares = middlewares)
-    ) : middlewares;
-
-    this.router.add(route);
+    this.router.add({
+      method: method,
+      path: path,
+      middlewares: middlewares,
+      handler: handler
+    });
   };
 });
 
@@ -93,8 +93,9 @@ proto.receive = function (reqBody) {
         throw new Error('No callback provided');
       }
       _this.callback = callback;
+      
       // Run the queue for this request
-      (new Queue(_this.req, _this.res, queue)).run();
+      Queue(_this.req, _this.res, queue).run();
     }
   };
 };
