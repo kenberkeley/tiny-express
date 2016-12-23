@@ -2,7 +2,7 @@
 
 [![npm version][npm-v-img]][npm-url]
 [![npm download][npm-dl-img]][npm-url]
-[![build](build-img)][build-url]
+[![build][build-img]][build-url]
 [![coverage][cov-img]][cov-url]
 
 > Implement a tiny express which can run in browser
