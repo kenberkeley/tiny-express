@@ -1,5 +1,7 @@
 # Tiny Express
 
+[![npm](https://img.shields.io/npm/v/npm.svg)](https://www.npmjs.com/package/tiny-express)
+[![npm](https://img.shields.io/npm/dm/localeval.svg)](https://www.npmjs.com/package/tiny-express)
 [![Build Status](https://travis-ci.org/kenberkeley/tiny-express.svg?branch=master)](https://travis-ci.org/kenberkeley/tiny-express)
 [![Coverage Status](https://coveralls.io/repos/github/kenberkeley/tiny-express/badge.svg)](https://coveralls.io/github/kenberkeley/tiny-express)
 
