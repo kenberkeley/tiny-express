@@ -1,8 +1,9 @@
 module.exports = function (req, res, next) {
   res.fail = function (errMsg) {
     res.send({
-      succues: false,
+      success: false,
       errMsg: errMsg
     });
   };
+  next();
 };

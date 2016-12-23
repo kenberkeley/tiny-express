@@ -52,7 +52,7 @@ describe('# RESTful API test', function () {
 
     app.use([{
       method: 'post',
-      url: '/post/:postId',
+      path: '/post/:postId',
       middleware: addYYYToReqBody,
       handler: function (req, res) {
         res.json(req);
@@ -64,7 +64,7 @@ describe('# RESTful API test', function () {
       url: '/post/1010?author=ken&time=today',
       body: { foo: 'bar' }
     }).respond(function (re) {
-      expect(re).to.equal(JSON.stringify({
+      expect(JSON.parse(re)).to.eql({
         method: 'POST',
         params: { postId: '1010' },
         query: { author: 'ken', time: 'today' },
@@ -72,7 +72,7 @@ describe('# RESTful API test', function () {
         body: { foo: 'bar' },
         path: '/post/1010',
         originalUrl: '/post/1010?author=ken&time=today'
-      }));
+      });
       done();
     });
   });
@@ -92,7 +92,7 @@ describe('# RESTful API test', function () {
 
     app.use({
       method: 'put',
-      url: '/post/:postId',
+      path: '/post/:postId',
       middlewares: [addZZZToReqBody, addAAAToReqBody],
       handler: function (req, res) {
         res.json(req);
@@ -104,7 +104,7 @@ describe('# RESTful API test', function () {
       url: '/post/1010?author=ken&time=today',
       body: { foo: 'bar' }
     }).respond(function (re) {
-      expect(re).to.equal(JSON.stringify({
+      expect(JSON.parse(re)).to.eql({
         method: 'PUT',
         params: { postId: '1010' },
         query: { author: 'ken', time: 'today' },
@@ -113,7 +113,7 @@ describe('# RESTful API test', function () {
         body: { foo: 'bar' },
         path: '/post/1010',
         originalUrl: '/post/1010?author=ken&time=today'
-      }));
+      });
       done();
     });
   });
@@ -123,25 +123,25 @@ describe('# RESTful API test', function () {
 
     app.use({
       method: 'delete',
-      url: '/post/:postId',
+      path: '/post/:postId',
       handler: function (req, res) {
         res.json(req);
       }
     });
 
     app.receive({
-      method: 'put',
+      method: 'delete',
       url: '/post/1010?author=ken&time=today',
       body: { foo: 'bar' }
     }).respond(function (re) {
-      expect(re).to.equal(JSON.stringify({
+      expect(JSON.parse(re)).to.eql({
         method: 'DELETE',
         params: { postId: '1010' },
         query: { author: 'ken', time: 'today' },
         body: { foo: 'bar' },
         path: '/post/1010',
         originalUrl: '/post/1010?author=ken&time=today'
-      }));
+      });
       done();
     });
   });
@@ -164,4 +164,35 @@ describe('# RESTful API test', function () {
     });
   });
 
+  it('## res.success', function (done) {
+    var app = appGen();
+
+    app.use(function (req, res, next) {
+      res.success('ok');
+    });
+
+    app.receive({ method: 'get', url: '/' }).respond(function (re) {
+      expect(re).to.eql({
+        success: true,
+        data: 'ok'
+      });
+      done();
+    });
+  });
+
+  it('## res.fail', function (done) {
+    var app = appGen();
+
+    app.use(function (req, res, next) {
+      res.fail('not ok');
+    });
+
+    app.receive({ method: 'get', url: '/' }).respond(function (re) {
+      expect(re).to.eql({
+        success: false,
+        errMsg: 'not ok'
+      });
+      done();
+    });
+  });
 });

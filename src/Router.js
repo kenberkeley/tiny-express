@@ -6,7 +6,12 @@ function Router() {
   if (!(this instanceof Router)) {
     return new Router();
   }
-  this.routes = [];
+  this.routes = [/*{
+    method: 'get',
+    path: '/foo/bar/:id',
+    middlewares: <Function[]>,
+    handler: <Function>
+  }*/];
 }
 
 var proto = Router.prototype;
@@ -29,7 +34,6 @@ proto.isEmpty = function () {
  * @return {Array}  middlewares (including handler)
  */
 proto.match = function (req) {
-  console.log(this.routes);
   for (var i = 0; i < this.routes.length; i++) {
     var route = this.routes[i];
 
