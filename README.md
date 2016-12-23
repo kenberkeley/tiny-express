@@ -1,9 +1,9 @@
 # Tiny Express
 
-[![npm](https://img.shields.io/npm/v/npm.svg)](https://www.npmjs.com/package/tiny-express)
-[![npm](https://img.shields.io/npm/dm/localeval.svg)](https://www.npmjs.com/package/tiny-express)
-[![Build Status](https://travis-ci.org/kenberkeley/tiny-express.svg?branch=master)](https://travis-ci.org/kenberkeley/tiny-express)
-[![Coverage Status](https://coveralls.io/repos/github/kenberkeley/tiny-express/badge.svg)](https://coveralls.io/github/kenberkeley/tiny-express)
+[![npm version][npm-v-img]][npm-url]
+[![npm download][npm-dl-img]][npm-url]
+[![build](build-img)][build-url]
+[![coverage][cov-img]][cov-url]
 
 > Implement a tiny express which can run in browser
 
@@ -35,3 +35,11 @@ res: {
   json: <Function>
 }
 ```
+
+[npm-url]: https://www.npmjs.com/package/tiny-express
+[npm-v-img]: http://img.shields.io/npm/v/tiny-express.svg
+[npm-dl-img]: http://img.shields.io/npm/dm/tiny-express.svg
+[build-img]: https://travis-ci.org/kenberkeley/tiny-express.svg?branch=master
+[build-url]: https://travis-ci.org/kenberkeley/tiny-express
+[cov-img]: https://coveralls.io/repos/github/kenberkeley/tiny-express/badge.svg
+[cov-url]: https://coveralls.io/github/kenberkeley/tiny-express
