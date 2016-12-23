@@ -3,10 +3,6 @@
   "version": "0.1.0",
   "description": "Implement a tiny express which can run in browser",
   "main": "index.js",
-  "scripts": {
-    "test": "mocha test",
-    "cov": "istanbul cover _mocha"
-  },
   "author": "Ken Berkeley <kenberkeley@foxmail.com>",
   "license": "MIT",
   "dependencies": {
@@ -17,5 +13,18 @@
     "chai": "^3.5.0",
     "istanbul": "^0.4.5",
     "mocha": "^3.2.0"
-  }
+  },
+  "scripts": {
+    "test": "mocha test",
+    "cov": "istanbul cover _mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kenberkeley/tiny-express.git"
+  },
+  "keywords": [
+    "express",
+    "browser",
+    "mock"
+  ]
 }
